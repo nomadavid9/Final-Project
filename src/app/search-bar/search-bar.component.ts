@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ApiCallService } from '../api-call.service';
+import { Observable} from 'rxjs/Observable';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _apiCall: ApiCallService) {}
 
   ngOnInit() {
+    this.httpCall();
   }
 
+  httpCall(){
+    this._apiCall.getData()
+      .subscribe(data => {
+        console.log(data)
+      });
+  }
 }
