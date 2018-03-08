@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { ROUTING } from "./app.routing";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         AboutComponent,
-        HomeComponent
+        HomeComponent,
+        SearchBarComponent
     ],
     imports: [
         BrowserAnimationsModule,
