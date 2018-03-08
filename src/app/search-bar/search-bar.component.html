@@ -1,12 +1,11 @@
-<h2>
-  <br><br><br>    
-  <input type= "text" 
+<div>
+  <input type= "text"
+  id= "formFields_2"
   [(ngModel)]= "_apiCall.symbol"
   (keyUp.enter)= "httpCall()"
-  placeholder="Stock Symbol ex: AAPL">
-</h2>
-<div>
-  <!--<button (click) = "httpCall()">Submit</button>-->
+  placeholder="Stock Symbol ex: AAPL"
+  size= "45">
+  <button (click) = "httpCall()">Submit</button>
 </div>
 <div *ngIf = "loader">
     <span class="spinner spinner-inline">Loading...</span>

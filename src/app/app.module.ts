@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ClarityModule } from '@clr/angular';
+import { ChartsModule } from 'ng2-charts';
 import { ROUTING } from "./app.routing";
 
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { ApiCallService } from './api-call.service';
         HttpModule,
         HttpClientModule,
         ClarityModule,
+        ChartsModule,
         ROUTING
     ],
     providers: [ApiCallService],
