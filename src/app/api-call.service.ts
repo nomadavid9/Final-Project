@@ -9,22 +9,22 @@ export class ApiCallService {
   timeSeries: string = 'TIME_SERIES_INTRADAY'
   
   base_symbol: string = '&symbol='
-  symbol: string = 'MSFT'
+  symbol: string = ''
   
   base_interval: string = '&interval='
   interval: string = '60min';
   
   base_apiKey: string = '&apikey='
   apiKey: string = '0OOOD0F61M3YBRBV';
-  
-  url: string = this.base_url + this.timeSeries + this.base_symbol +
-                this.symbol + this.base_interval + this.interval +
-                this.base_apiKey + this.apiKey;
                 
   constructor(private http: HttpClient) { }
   
+  
+  
   getData(){
-      console.log(this.url);
-      return this.http.get(this.url)
+    console.log(this.symbol, "hit")
+    return this.http.get(this.base_url + this.timeSeries + this.base_symbol +
+                         this.symbol + this.base_interval + this.interval +
+                         this.base_apiKey + this.apiKey;)
   }
 }

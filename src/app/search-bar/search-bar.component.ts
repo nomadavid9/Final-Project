@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
 import { Observable} from 'rxjs/Observable';
+
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
@@ -9,15 +10,17 @@ import { Observable} from 'rxjs/Observable';
 export class SearchBarComponent implements OnInit {
 
   constructor(private _apiCall: ApiCallService) {}
-
+  
+  stockObj: any;
+  
   ngOnInit() {
-    this.httpCall();
   }
 
   httpCall(){
     this._apiCall.getData()
       .subscribe(data => {
         console.log(data)
+        this.stockObj = data;
       });
   }
 }

@@ -1,3 +1,7 @@
-<p>
-  search-bar works!
-</p>
+<h2>
+  <br><br><br>    
+  <input type= "text" 
+  [(ngModel)]= "_apiCall.symbol"
+  (keyUp.enter)= "httpCall()"
+  placeholder="Stock Symbol ex: APPL">
+</h2>
