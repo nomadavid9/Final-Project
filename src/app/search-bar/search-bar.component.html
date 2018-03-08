@@ -3,5 +3,9 @@
   <input type= "text" 
   [(ngModel)]= "_apiCall.symbol"
   (keyUp.enter)= "httpCall()"
-  placeholder="Stock Symbol ex: APPL">
+  placeholder="Stock Symbol ex: AAPL">
 </h2>
+<div>
+  <!--<button (click) = "httpCall()">Submit</button>-->
+</div>
+<div *ngIf = "loader">...Grabbing data.</div>

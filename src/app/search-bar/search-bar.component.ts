@@ -12,15 +12,19 @@ export class SearchBarComponent implements OnInit {
   constructor(private _apiCall: ApiCallService) {}
   
   stockObj: any;
+  loader: boolean = false;
   
   ngOnInit() {
   }
 
   httpCall(){
+    this.loader = true;
     this._apiCall.getData()
       .subscribe(data => {
         console.log(data)
+        
         this.stockObj = data;
+        this.loader = false;
       });
   }
 }
