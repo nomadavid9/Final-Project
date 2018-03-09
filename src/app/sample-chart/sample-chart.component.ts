@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ApiCallService } from '../api-call.service'
 
 @Component({
   selector: 'app-sample-chart',
   templateUrl: './sample-chart.component.html'
 })
-export class SampleChartComponent {
+export class SampleChartComponent implements OnInit {
+
+constructor (private _apiCall: ApiCallService){}
+
 mockData: any = 
     {
     "2018-03-08 16:00:00": 
@@ -18,7 +22,9 @@ mockData: any =
     }
   // lineChart
   public lineChartData:Array<any> = [
-    {data: [18, 48, 77, 9, 100, 27, 40, 78, 100, 150], label: 'Series A'}
+    {data: 
+    [18, 48, 77, 9, 100, 27, 40, 78, 100, 150], 
+    label: "Symbol"}
     ]
   
   public lineChartLabels:Array<any> = 

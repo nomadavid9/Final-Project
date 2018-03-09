@@ -17,11 +17,16 @@ export class SearchBarComponent implements OnInit {
   ngOnInit() {
   }
 
+  
+  showSymbol(symbol){
+    console.log(symbol);
+  }
+
   httpCall(){
     this.loader = true;
     this._apiCall.getData()
       .subscribe(data => {
-        console.log(data)
+        console.log("Received data from Service.")
         this.stockObj = data;
         this.loader = false;
       });

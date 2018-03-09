@@ -17,13 +17,24 @@ export class ApiCallService {
   
     base_apiKey: string = '&apikey='
     apiKey: string = '0OOOD0F61M3YBRBV';
+    
+    //Obj Data
+    stockObj: any;
                 
   constructor(private http: HttpClient) { }
   
   getData(){
-    console.log(this.symbol, "hit")
-    return this.http.get(this.base_url + this.timeSeries + this.base_symbol +
-                         this.symbol + this.base_interval + this.interval +
-                         this.base_apiKey + this.apiKey)
+    console.log(this.symbol, "hit");
+    let url = this.base_url + this.timeSeries + this.base_symbol +
+              this.symbol + this.base_interval + this.interval +
+              this.base_apiKey + this.apiKey;
+    return this.http.get(url);
+  }
+  
+  getCloses(){
+    Object.keys(this.stockObj).forEach(function(key) {
+     console.log(key, this.StockObj[key]);
+      }
+    );
   }
 }
