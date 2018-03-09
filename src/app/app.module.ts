@@ -13,13 +13,15 @@ import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ApiCallService } from './api-call.service';
+import { SampleChartComponent } from './sample-chart/sample-chart.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         AboutComponent,
         HomeComponent,
-        SearchBarComponent
+        SearchBarComponent,
+        SampleChartComponent
     ],
     imports: [
         BrowserAnimationsModule,
