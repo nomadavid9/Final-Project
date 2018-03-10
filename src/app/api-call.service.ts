@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable} from 'rxjs/Observable';
+import { filter, map, reduce, pluck } from 'rxjs/operators';
 
 @Injectable()
 export class ApiCallService {
@@ -28,13 +29,20 @@ export class ApiCallService {
     let url = this.base_url + this.timeSeries + this.base_symbol +
               this.symbol + this.base_interval + this.interval +
               this.base_apiKey + this.apiKey;
-    return this.http.get(url);
-  }
-  
-  getCloses(){
-    Object.keys(this.stockObj).forEach(function(key) {
-     console.log(key, this.StockObj[key]);
-      }
-    );
+    return this.http.get(url)
+      .pipe(
+        pluck("Time Series (60min)"),
+        map( (data: any) => {
+          console.log("before formatting: ", data);
+          var stockHourly = [];
+          for (let key in data){
+            stockHourly.push(Object.entries(data[key]))
+            console.log(stockHourly)
+          }
+          return stockHourly;
+        })
+        map( )
+        
+      )
   }
 }

@@ -26,9 +26,9 @@ export class SearchBarComponent implements OnInit {
     this.loader = true;
     this._apiCall.getData()
       .subscribe(data => {
-        console.log("Received data from Service.")
-        this.stockObj = data;
+        console.log("Received data from Service.", data)
         this.loader = false;
-      });
+        }
+      );
   }
 }

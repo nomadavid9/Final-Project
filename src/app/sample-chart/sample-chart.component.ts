@@ -9,7 +9,10 @@ export class SampleChartComponent implements OnInit {
 
 constructor (private _apiCall: ApiCallService){}
 
-mockData: any = 
+  ngOnInit() {}
+
+
+  mockData: any = 
     {
     "2018-03-08 16:00:00": 
         {
