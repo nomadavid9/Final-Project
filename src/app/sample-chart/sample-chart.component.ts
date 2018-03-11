@@ -5,12 +5,9 @@ import { ApiCallService } from '../api-call.service'
   selector: 'app-sample-chart',
   templateUrl: './sample-chart.component.html'
 })
-export class SampleChartComponent implements OnInit {
+export class SampleChartComponent {
 
 constructor (private _apiCall: ApiCallService){}
-
-  ngOnInit() {}
-
 
   mockData: any = 
     {
@@ -26,8 +23,15 @@ constructor (private _apiCall: ApiCallService){}
   // lineChart
   public lineChartData:Array<any> = [
     {data: 
-    [18, 48, 77, 9, 100, 27, 40, 78, 100, 150], 
-    label: "Symbol"}
+    [18, 48, 77, 9, 100, 27, 40, 78, 100, 150,], 
+    label: "puessss"
+      
+    },
+    {data: 
+    [18, 43, 74, 9, 20, 27, 40, 78, 100, 150,], 
+    label: "pue"
+      
+    }
     ]
   
   public lineChartLabels:Array<any> = 
