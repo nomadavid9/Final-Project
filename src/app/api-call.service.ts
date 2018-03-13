@@ -57,6 +57,7 @@ export class ApiCallService {
           for (let key in data){
             stockHourly.push(Object.entries(data[key]))
           }
+          console.log(stockHourly)
           return stockHourly;
         }),
         

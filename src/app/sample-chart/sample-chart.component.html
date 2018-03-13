@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <div style="display: block;">
     <canvas baseChart width="200" height="200"
-                [datasets]="lineChartData"
+                [datasets]= "stockArray"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"
                 [colors]="lineChartColors"
@@ -12,15 +12,18 @@
                 (chartClick)="chartClicked($event)"></canvas>
     </div>
   </div>
-  <div class="col-md-6" style="margin-bottom: 10px">
-    <table class="table table-responsive table-condensed">
-      <tr>
-        <th *ngFor="let label of lineChartLabels">{{label}}</th>
-      </tr>
-      <tr *ngFor="let d of lineChartData">
-        <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
-      </tr>
-    </table>
-    <button (click)="randomize()">CLICK</button>
-  </div>
-</div>
+
+<table class= "table">
+  <thead>
+  	<tr>
+  	  <th></th>
+  		<th *ngFor = "let label of lineChartLabels;">{{label}}</th>
+  	</tr>
+	</thead>
+	
+	<tr *ngFor = "let stock of stockArray">
+		<th>{{stock.label}}</th>
+		<td *ngFor = "let l of lineChartLabels; let j = index">{{stock["data"][j]}}</td>
+	</tr>
+	
+</table>
