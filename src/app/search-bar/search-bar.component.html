@@ -2,17 +2,17 @@
   <input type= "text"
   id= "formFields_2"
   [(ngModel)]= "_apiCall.symbol"
-  (keyUp.enter)= "httpCall()"
+  (keyUp.enter)= "getData()"
   placeholder="Stock Symbol ex: AAPL"
   size= "45">
-  <button (click) = "httpCall()">Submit</button>
+  <button (click) = "getData()">Submit</button>
 </div>
 <div *ngIf = "loader">
     <span class="spinner spinner-inline">Loading...</span>
     <span>Loading...</span>
 </div>
 <app-sample-chart 
-*ngIf = "stockObj"
-[stockArray] = "stockObj"
-[timestamps] = "timestamps">
+*ngIf = "stockArray"
+[stockArray] = "stockArray"
+[timesArray] = "timesArray">
 </app-sample-chart>

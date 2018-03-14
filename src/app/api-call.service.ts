@@ -54,6 +54,7 @@ export class ApiCallService {
           for (let key in data){
             this.timestamps.push(key);
           }
+          this.timestamps;
           return data;
         }),
         
@@ -156,9 +157,6 @@ export class ApiCallService {
           let undefObject = formattedData.splice(5,1)
           console.log("Final Array of Objects Format: ", formattedData)
           return formattedData;
-        }),
-        map ( (formattedData) => {
-          return formattedData
         })
       )
   }

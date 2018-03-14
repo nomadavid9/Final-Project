@@ -11,22 +11,43 @@ export class SearchBarComponent {
 
   constructor(private _apiCall: ApiCallService) {}
   
-  stockObj: any;
-  timestamps: any = this._apiCall.timestamps;
+  stockArray: any;
+  timesArray: any;
   loader: boolean = false;
-  
-  showSymbol(symbol){
-    console.log(symbol);
-  }
 
-  httpCall(){
+  /* Gets last seven values of each */
+  public getRecentData(objectArray){
+    objectArray.map((object) => {
+      object.data.splice(7);
+    })
+    return objectArray;
+    }
+  /* Gets */
+  public getRecentTimes(array){
+    array.splice(7);
+    return array;
+  }
+  
+  
+   /*Gets formattedData array from service
+  stores it in stockArray property 
+  then calls getLastSevenData function on incoming array.*/
+  getData(){
     this.loader = true;
     this._apiCall.getData()
       .subscribe(data => {
-        console.log("Received formatted data from Service.")
-        this.stockObj = data
+        //format stockArray
+        this.stockArray = data
+        this.getRecentData(this.stockArray);
+        
+        //initialize and format timesArray
+        this.timesArray = this._apiCall.timestamps;
+        this.getRecentTimes(this.timesArray);
+        
+        //Notify console that data has been received 
+        console.log("Received fully formatted data from Service.")
         this.loader = false;
-        }
-      );
+        });
+    
   }
 }

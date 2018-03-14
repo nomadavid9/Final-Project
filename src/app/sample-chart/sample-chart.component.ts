@@ -10,30 +10,14 @@ export class SampleChartComponent {
 constructor (private _apiCall: ApiCallService){}
 
 @Input()stockArray: any[];
-@Input()timestamps: any[];
+@Input()timesArray: any[];
 
-  mockData: any = 
-    {
-    "2018-03-08 16:00:00": 
-        {
-        "1. open": "94.1600",
-        "2. high": "94.4850",
-        "3. low": "93.7650",
-        "4. close": "94.4300",
-        "5. volume": "7040720"
-        }
-    }
   // lineChart
   public lineChartData:Array<any> = 
   this.stockArray;
   
   public lineChartLabels:Array<any> = 
-  ['-7Hr', '-6HR', '-5Hr', '-4Hr', '-3Hr', '-2Hr', '-1Hr'];
-  
-  public graphLabels:Array<any> = 
-  ['label','-7Hr', '-6HR', '-5Hr', '-4Hr', '-3Hr', '-2Hr', '-1Hr'];
-  
-  
+  this.timesArray;
   
   public lineChartOptions:any = {
     responsive: true
@@ -68,8 +52,8 @@ constructor (private _apiCall: ApiCallService){}
   public lineChartType:string = 'line';
  
   public randomize():void {
-    console.log(this.stockArray)
-    console.log(this.timestamps)
+    console.log("chart component has access to stockArray: ", this.stockArray)
+    console.log("chart component has access to timestamps: ", this.timesArray)
   }
  
   // events
