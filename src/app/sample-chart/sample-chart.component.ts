@@ -10,6 +10,7 @@ export class SampleChartComponent {
 constructor (private _apiCall: ApiCallService){}
 
 @Input()stockArray: any[];
+@Input()timestamps: any[];
 
   mockData: any = 
     {
@@ -68,6 +69,7 @@ constructor (private _apiCall: ApiCallService){}
  
   public randomize():void {
     console.log(this.stockArray)
+    console.log(this.timestamps)
   }
  
   // events

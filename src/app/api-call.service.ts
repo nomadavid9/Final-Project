@@ -21,7 +21,7 @@ export class ApiCallService {
     
     //FormattedData!
     stockArray: any;
-                
+    timestamps: any = [];            
   constructor(private http: HttpClient) { }
   
   
@@ -49,22 +49,31 @@ export class ApiCallService {
         //pulls first layer out of nested object.
         pluck("Time Series (60min)"),
         
+        //Pull out timestamps;
+        map((data: any)=>{
+          for (let key in data){
+            this.timestamps.push(key);
+          }
+          return data;
+        }),
+        
         /*This map function creates a triple-nested array 
         out of original nested object API. Thsis will will 
         allow me to access deeply nested values with .map functions*/
         map( (data: any) => {
-          let stockHourly = [];
+          console.log("Nested Object Format: ", data)
+          let topArray = [];
           for (let key in data){
-            stockHourly.push(Object.entries(data[key]))
+            topArray.push(Object.entries(data[key]))
           }
-          console.log(stockHourly)
-          return stockHourly;
+          return topArray;
         }),
         
         /*This map function digs into the bottom layer of our 
         triple-nested array and removes the number from the label string"
         for ex: "4. open" => "open"*/
         map( (topArray: any) => {
+          console.log("Nested Array Format: ", topArray)
           return topArray
             .map( (middleArray) => {
             return middleArray
@@ -81,7 +90,9 @@ export class ApiCallService {
         ex: ["open", 78.70, "high", 80, "low", 44, ...]
         where matching values line up one after the other*/
         map ( (array: any) => {
-          return this.deepFlatten(array);          
+          let flattenedArray = this.deepFlatten(array);
+          console.log("Flattened Nested Array Format: ", flattenedArray)
+          return flattenedArray;          
         }),
         
         /*populates the single array from the previous map function 
@@ -94,6 +105,7 @@ export class ApiCallService {
             array2D.push( [array[i],array[i+1]] )
             i++;
           }
+          console.log("Matching Pairs Format: ", array2D)
           return array2D;
         }),
         
@@ -142,7 +154,11 @@ export class ApiCallService {
         with undefined values, this map function removes it.*/
         map ( (formattedData: any) => {
           let undefObject = formattedData.splice(5,1)
+          console.log("Final Array of Objects Format: ", formattedData)
           return formattedData;
+        }),
+        map ( (formattedData) => {
+          return formattedData
         })
       )
   }

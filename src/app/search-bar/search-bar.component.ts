@@ -7,16 +7,13 @@ import { Observable} from 'rxjs/Observable';
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent {
 
   constructor(private _apiCall: ApiCallService) {}
   
   stockObj: any;
+  timestamps: any = this._apiCall.timestamps;
   loader: boolean = false;
-  
-  ngOnInit() {
-  }
-
   
   showSymbol(symbol){
     console.log(symbol);
@@ -26,7 +23,7 @@ export class SearchBarComponent implements OnInit {
     this.loader = true;
     this._apiCall.getData()
       .subscribe(data => {
-        console.log("Received data from Service.", data)
+        console.log("Received formatted data from Service.")
         this.stockObj = data
         this.loader = false;
         }
