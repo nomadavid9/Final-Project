@@ -10,12 +10,10 @@
                 [chartType]="lineChartType"
                 (chartHover)="chartHovered($event)"
                 (chartClick)="chartClicked($event)"></canvas>
-      </div>
     </div>
-<h5><button (click) = "viewData()">View Data!</button></h5>
-
+  </div>
   <div class="col-xs-12 col-md-12 col-lg-6 col-xl-4">
-    <table class= "table">
+    <table class= "table table-noborder">
       <tr>
         <th></th>
         <th *ngFor="let time of lineChartLabels; let j=index">
@@ -23,7 +21,7 @@
         </th>
       </tr>
       <tr *ngFor="let stock of lineChartData;">
-        <th>{{stock.label}}</th>
+        <td class = "left labelNames">{{stock.label}}</td>
         <td *ngFor="let datum of lineChartLabels; let i = index">
           {{stock.data[i]}}
         </td>
