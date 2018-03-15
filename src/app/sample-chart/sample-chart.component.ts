@@ -9,15 +9,8 @@ export class SampleChartComponent {
 
 constructor (private _apiCall: ApiCallService){}
 
-@Input()stockArray: any[];
-@Input()timesArray: any[];
-
-  // lineChart
-  public lineChartData:Array<any> = 
-  this.stockArray;
-  
-  public lineChartLabels:Array<any> = 
-  this.timesArray;
+@Input('stockArray') lineChartData: any[];
+@Input('timesArray') lineChartLabels: any[];
   
   public lineChartOptions:any = {
     responsive: true
@@ -51,9 +44,9 @@ constructor (private _apiCall: ApiCallService){}
   public lineChartLegend:boolean = true;
   public lineChartType:string = 'line';
  
-  public randomize():void {
-    console.log("chart component has access to stockArray: ", this.stockArray)
-    console.log("chart component has access to timestamps: ", this.timesArray)
+  public viewData():void {
+    console.log("chart component has access to stockArray: ", this.lineChartData)
+    console.log("chart component has access to timestamps: ", this.lineChartLabels)
   }
  
   // events

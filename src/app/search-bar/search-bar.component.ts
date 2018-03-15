@@ -10,7 +10,7 @@ import { Observable} from 'rxjs/Observable';
 export class SearchBarComponent {
 
   constructor(private _apiCall: ApiCallService) {}
-  
+  stockSymbol: string;
   stockArray: any;
   timesArray: any;
   loader: boolean = false;
@@ -32,9 +32,9 @@ export class SearchBarComponent {
    /*Gets formattedData array from service
   stores it in stockArray property 
   then calls getLastSevenData function on incoming array.*/
-  getData(){
+  getData(stockSymbol){
     this.loader = true;
-    this._apiCall.getData()
+    this._apiCall.getData(stockSymbol)
       .subscribe(data => {
         //format stockArray
         this.stockArray = data

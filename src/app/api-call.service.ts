@@ -11,7 +11,6 @@ export class ApiCallService {
     timeSeries: string = 'TIME_SERIES_INTRADAY'
   
     base_symbol: string = '&symbol='
-    symbol: string = ''
   
     base_interval: string = '&interval='
     interval: string = '60min';
@@ -39,10 +38,10 @@ export class ApiCallService {
     )
   }
   
-  getData(){
-    console.log(this.symbol, "hit");
+  getData(stockSymbol){
+    console.log(stockSymbol, "hit");
     let url = this.base_url + this.timeSeries + this.base_symbol +
-              this.symbol + this.base_interval + this.interval +
+              stockSymbol + this.base_interval + this.interval +
               this.base_apiKey + this.apiKey;
     return this.http.get(url)
       .pipe(

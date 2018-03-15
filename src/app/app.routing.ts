@@ -16,7 +16,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 the component to be activated upon routing*/
 export const ROUTES: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: 'StockSearch', component: SearchBarComponent},
+    {path: 'home', component: SearchBarComponent},
     {path: 'about', component: AboutComponent}
 ];
 

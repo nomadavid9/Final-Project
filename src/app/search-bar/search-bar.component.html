@@ -1,11 +1,11 @@
 <div>
   <input type= "text"
   id= "formFields_2"
-  [(ngModel)]= "_apiCall.symbol"
-  (keyUp.enter)= "getData()"
+  [(ngModel)]= "stockSymbol"
+  (keyUp.enter)= "getData(stockSymbol)"
   placeholder="Stock Symbol ex: AAPL"
   size= "45">
-  <button (click) = "getData()">Submit</button>
+  <button (click) = "getData(stockSymbol)">Submit</button>
 </div>
 <div *ngIf = "loader">
     <span class="spinner spinner-inline">Loading...</span>
