@@ -12,20 +12,19 @@
                 (chartClick)="chartClicked($event)"></canvas>
     </div>
   </div>
-  <div class="col-xs-12 col-md-12 col-lg-6 col-xl-4">
     <table class= "table table-noborder">
       <tr>
         <th></th>
         <th *ngFor="let time of lineChartLabels; let j=index">
-          {{time | date:"short"}}
+          {{time | date:"medium"}}
         </th>
       </tr>
-      <tr *ngFor="let stock of lineChartData;">
+      <tr *ngFor="let stock of lineChartData; let j = index">
         <td class = "left labelNames">{{stock.label}}</td>
         <td *ngFor="let datum of lineChartLabels; let i = index">
-          {{stock.data[i]}}
+          <div *ngIf="j < 4">{{stock.data[i] | number: '3.2-2'}}</div>
+          <div *ngIf="j === 4">{{stock.data[i] | number: '.2-2' }}</div>
         </td>
       </tr>
     </table>
-  </div>
 </div>

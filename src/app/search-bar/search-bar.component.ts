@@ -15,19 +15,24 @@ export class SearchBarComponent {
   timesArray: any;
   loader: boolean = false;
 
-  /* Gets last seven values of each */
+  /* Gets seven most recent values of each array within the 
+  value property of each object within stockArray and returns 
+  stockArray, with newly truncated value arrays. 
+  This function is called within getData()*/
   public getRecentData(objectArray){
     objectArray.map((object) => {
       object.data.splice(7);
+      object.data.reverse();
     })
     return objectArray;
     }
-  /* Gets */
+ /* Gets seven most recent values of timesArray. 
+ This function is called within getData()*/
   public getRecentTimes(array){
     array.splice(7);
+    array.reverse();
     return array;
   }
-  
   
    /*Gets formattedData array from service
   stores it in stockArray property 
