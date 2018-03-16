@@ -9,18 +9,20 @@ import { ChartsModule } from 'ng2-charts';
 import { ROUTING } from "./app.routing";
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from "./home/home.component";
-import { AboutComponent } from "./about/about.component";
+import { RegisterComponent } from "./register/register.component";
+import { LogInComponent } from "./log-in/log-in.component";
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { ApiCallService } from './api-call.service';
 import { SampleChartComponent } from './sample-chart/sample-chart.component';
+
+
+import { ApiCallService } from './api-call.service';
 
 @NgModule({
     declarations: [
         AppComponent,
-        AboutComponent,
-        HomeComponent,
         SearchBarComponent,
+        RegisterComponent,
+        LogInComponent,
         SampleChartComponent
     ],
     imports: [

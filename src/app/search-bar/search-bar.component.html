@@ -1,16 +1,16 @@
-<div>
-  <input type= "text"
+<input type= "text"
   id= "formFields_2"
   [(ngModel)]= "stockSymbol"
   (keyUp.enter)= "getData(stockSymbol)"
   placeholder="Stock Symbol ex: AAPL"
   size= "45">
-  <button (click) = "getData(stockSymbol)">Submit</button>
-</div>
+<button (click) = "getData(stockSymbol)">Submit</button>
+
 <div *ngIf = "loader">
     <span class="spinner spinner-inline">Loading...</span>
     <span>Loading...</span>
 </div>
+
 <app-sample-chart 
 *ngIf = "stockArray"
 [stockArray] = "stockArray"

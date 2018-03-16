@@ -1,9 +1,12 @@
 /* tslint:disable:no-unused-variable */
-
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
-import { HomeComponent } from "./home/home.component";
-import { AboutComponent } from "./about/about.component";
+import { RegisterComponent } from './register/register.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SampleChartComponent } from './sample-chart/sample-chart.component';
+
 import { ClarityModule } from "@clr/angular";
 import { ROUTING } from "./app.routing";
 import { APP_BASE_HREF } from "@angular/common";
@@ -17,8 +20,10 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 AppComponent,
-                AboutComponent,
-                HomeComponent
+                LogInComponent,
+                RegisterComponent,
+                SearchBarComponent,
+                SampleChartComponent
             ],
             imports: [
                 ClarityModule.forRoot(),
