@@ -16,6 +16,7 @@ import { SampleChartComponent } from './sample-chart/sample-chart.component';
 
 
 import { ApiCallService } from './api-call.service';
+import { UserService } from './user.service';
 import { ChartComponent } from './chart/chart.component';
 import { GraphComponent } from './graph/graph.component';
 
@@ -39,7 +40,7 @@ import { GraphComponent } from './graph/graph.component';
         ChartsModule,
         ROUTING
     ],
-    providers: [ApiCallService],
+    providers: [ApiCallService, UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

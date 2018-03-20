@@ -9,8 +9,8 @@
             <input class="username" 
                 type="text" 
                 id="login_username" 
-                placeholder="Username"
-                [(ngModel)]="user.username"
+                placeholder="email"
+                [(ngModel)]="user.email"
                 [ngModelOptions]="{standalone:true}">
             <input class="password" 
                 type="password" 
@@ -18,7 +18,6 @@
                 placeholder="Password"
                 [(ngModel)]="user.password"
                 [ngModelOptions]="{standalone:true}">
-            <button (click)= "showUser()">Show User</button>
             <div class="checkbox">
                 <input type="checkbox" id="rememberme">
                 <label for="rememberme">
@@ -28,7 +27,7 @@
             <div class="error active">
                 Invalid user name or password
             </div>
-            <button type="submit" class="btn btn-primary">NEXT</button>
+            <button (click)="loginSubmit()" type="submit" class="btn btn-primary">Submit</button>
             <button (click)="registerUser()" class="btn btn-link">Sign up for a User ID</button>
         </div>
     </form>
