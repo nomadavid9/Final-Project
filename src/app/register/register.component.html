@@ -3,14 +3,43 @@
         <label class="title">
             <h3 class="welcome">Sign up for</h3>
             TickerTracker
-            <h5 class="hint">Enter a new User ID and Password</h5>
+            <h5 class="hint">Enter Personal Information</h5>
         </label>
         <div class="login-group">
-            <p>Enter a User ID:</p>
-            <input class="username" type="text" id="login_username">
-            <p>Enter a Password:</p>
-            <input class="password" type="password" id="login_password">
-            <button type="submit" class="btn btn-primary">NEXT</button>
+            <input type="text" 
+            [(ngModel)] = "user.firstName"
+            [ngModelOptions]="{standalone:true}"
+            placeholder="first name">
+            <br>
+            <input type="text" 
+            [(ngModel)] = "user.lastName"
+            [ngModelOptions]="{standalone:true}"
+            placeholder="last name">
+            <br>
+            <input type="text" 
+            [(ngModel)] = "user.email"
+            [ngModelOptions]="{standalone:true}"
+            placeholder="email">
+            <br>
+            <input type="text" 
+            [(ngModel)] = "user.username"
+            [ngModelOptions]="{standalone:true}"
+            placeholder="username">
+            <br>
+            <input type="password" 
+            [(ngModel)] = "user.password"
+            [ngModelOptions]="{standalone:true}"
+            placeholder="password">
+            <br>
+            <input type="text" 
+            [(ngModel)] = "user.realm"
+            [ngModelOptions]="{standalone:true}"
+            placeholder="country">
+            
+            <button 
+                type="submit" 
+                (click)= "registerSubmit()" 
+                class="btn btn-primary">NEXT</button>
         </div>
     </form>
 </div>

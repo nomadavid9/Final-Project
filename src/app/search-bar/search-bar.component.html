@@ -1,20 +1,19 @@
-<div class="login-wrapper">
-  <input type= "text"
-  id= "formFields_2"
-  [(ngModel)]= "stockSymbol"
-  (keyUp.enter)= "getData(stockSymbol)"
-  placeholder="Stock Symbol ex: AAPL"
-  size= "45">
+<input type= "text"
+id= "formFields_2"
+[(ngModel)]= "stockSymbol"
+[ngModelOptions]="{standalone:true}"
+(keyUp.enter)= "getData(stockSymbol)"
+placeholder="Stock Symbol ex: AAPL"
+size= "45">
 <button (click) = "getData(stockSymbol)">Submit</button>
 
 <div *ngIf = "loader">
-    <span class="spinner spinner-inline">Loading...</span>
-    <span>Loading...</span>
+  <span class="spinner spinner-inline">Loading...</span>
+  <span>Loading...</span>
 </div>
 
 <app-sample-chart 
-*ngIf = "stockArray"
-[stockArray] = "stockArray"
-[timesArray] = "timesArray">
+  *ngIf = "stockArray"
+  [stockArray] = "stockArray"
+  [timesArray] = "timesArray">
 </app-sample-chart>
-</div>

@@ -17,8 +17,12 @@ export class LogInComponent implements OnInit {
     console.log(this.user);
     this._user.login(this.user)
       .subscribe(
-        userRes => {console.log(userRes, "res")
-      })
+        userRes => console.log(userRes, "res"),
+        err => {
+          alert("There was an error.")
+          console.log(err)
+        }
+      )
   }
   
   registerUser(){

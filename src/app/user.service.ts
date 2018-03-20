@@ -8,8 +8,7 @@ export class UserService {
   baseUrl: string = 'http://david-spring-2018-phortonssf.c9users.io:8080/api/appUsers/';
   
   login(user){
-      return this._http.post(this.baseUrl + "login",
-      {email: user.email, password: user.password})
+      return this._http.post(this.baseUrl + "login", user)
   }
   
   registerUser(user){
