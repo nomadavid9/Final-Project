@@ -16,6 +16,8 @@ import { SampleChartComponent } from './sample-chart/sample-chart.component';
 
 
 import { ApiCallService } from './api-call.service';
+import { ChartComponent } from './chart/chart.component';
+import { GraphComponent } from './graph/graph.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +25,9 @@ import { ApiCallService } from './api-call.service';
         SearchBarComponent,
         RegisterComponent,
         LogInComponent,
-        SampleChartComponent
+        SampleChartComponent,
+        ChartComponent,
+        GraphComponent
     ],
     imports: [
         BrowserAnimationsModule,

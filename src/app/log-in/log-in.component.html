@@ -6,14 +6,19 @@
             <h5 class="hint">Use your User ID to sign in <span style="font-weight:bold">or</span> create one now</h5>
         </label>
         <div class="login-group">
-            <div class="auth-source select">
-                <select id="login-auth-source-1">
-                    <option>Local Users</option>
-                    <option>Administrator</option>
-                </select>
-            </div>
-            <input class="username" type="text" id="login_username" placeholder="Username">
-            <input class="password" type="password" id="login_password" placeholder="Password">
+            <input class="username" 
+                type="text" 
+                id="login_username" 
+                placeholder="Username"
+                [(ngModel)]="user.username"
+                [ngModelOptions]="{standalone:true}">
+            <input class="password" 
+                type="password" 
+                id="login_password" 
+                placeholder="Password"
+                [(ngModel)]="user.password"
+                [ngModelOptions]="{standalone:true}">
+            <button (click)= "showUser()">Show User</button>
             <div class="checkbox">
                 <input type="checkbox" id="rememberme">
                 <label for="rememberme">
@@ -27,4 +32,5 @@
             <button (click)="registerUser()" class="btn btn-link">Sign up for a User ID</button>
         </div>
     </form>
+    
 </div>

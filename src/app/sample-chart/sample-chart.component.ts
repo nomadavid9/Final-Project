@@ -12,6 +12,7 @@ constructor (private _apiCall: ApiCallService){}
 @Input('stockArray') lineChartData: any[];
 @Input('timesArray') lineChartLabels: any[];
   
+  
   public lineChartOptions:any = {
     responsive: true
   };
@@ -22,7 +23,9 @@ constructor (private _apiCall: ApiCallService){}
       pointBackgroundColor: 'rgb(255, 99, 132)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      fill: false,
+      hidden: true
     },
     { // high
       backgroundColor: '#D2E9FF',
@@ -30,7 +33,9 @@ constructor (private _apiCall: ApiCallService){}
       pointBackgroundColor: 'rgb(54, 162, 235)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
+      pointHoverBorderColor: 'rgba(77,83,96,1)',
+      fill: false,
+      hidden: true
     },
     { // low
       backgroundColor: '#FFFFD2',
@@ -38,7 +43,9 @@ constructor (private _apiCall: ApiCallService){}
       pointBackgroundColor: 'rgb(255, 206, 86)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      fill: false,
+      hidden: true
     },
     { // close
       backgroundColor: '#D2FFFF',
@@ -46,7 +53,8 @@ constructor (private _apiCall: ApiCallService){}
       pointBackgroundColor: 'rgb(75, 192, 192)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      fill: false
     },
     { // volume
       backgroundColor: '#D2D2FF',
@@ -54,7 +62,9 @@ constructor (private _apiCall: ApiCallService){}
       pointBackgroundColor: 'rgb(153, 102, 255)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      fill: false,
+      hidden: true
     }
   ];
   public lineChartLegend:boolean = true;
