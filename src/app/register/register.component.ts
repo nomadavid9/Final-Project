@@ -10,12 +10,12 @@ import { UserService } from '../user.service'
 export class RegisterComponent implements OnInit {
   
   user: any = {};
+  loader: boolean = false;
   
   constructor(private _user: UserService, private _router: Router) { }
   
   registerSubmit(){
-    console.log(this.user)
-    
+    this.loader = true;
     this._user.registerUser(this.user)
       .subscribe(
         (userRes: any) => {
@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
           sessionStorage.setItem('token', userRes.token)
           sessionStorage.setItem('userId', userRes.userId)
           this._router.navigate(['/search'])
+          this.loader = false;
         })
   }
   

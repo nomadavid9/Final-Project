@@ -2,7 +2,7 @@
     <form class="login">
         <label class="title">
             <h3 class="welcome">Sign up for</h3>
-            TickerTracker
+            StockSleuth<span class = "trdemark">&trade;</span>
             <h5 class="hint">Enter Personal Information</h5>
         </label>
         <div class="login-group">
@@ -39,7 +39,13 @@
             <button 
                 type="submit" 
                 (click)= "registerSubmit()" 
-                class="btn btn-primary">NEXT</button>
+                class="btn btn-primary">Register
+            </button>
+            <div *ngIf = "loader">
+                <span class="spinner spinner-inline">Loading...</span>
+                <span>Loading...</span>
+            </div>
         </div>
     </form>
 </div>
+
