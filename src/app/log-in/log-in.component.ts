@@ -14,24 +14,30 @@ export class LogInComponent implements OnInit {
   
   constructor(private _user: UserService, private _router: Router) { }
   
+  //submits login request to login function on userService
   loginSubmit(){
+    //makes spinner appear
     this.loader = true;
+    //calls login function on userService
     this._user.login(this.user)
       .subscribe(
         (userRes: any) => {
           console.log(userRes, "res")
           sessionStorage.setItem('token', userRes.token)
           sessionStorage.setItem('userId', userRes.userId)
+          
+          //routes to search-component, upon successful login.
           this._router.navigate(['/search'])
           this.loader = false;
         })
   }
   
   registerUser(){
-    this.loader = true;
+    /*routes to register component (if user 
+    chooses to register while in login page)*/
     this._router.navigate(['/register']);
-    this.loader = false;
   }
+  
   ngOnInit() {
   }
 

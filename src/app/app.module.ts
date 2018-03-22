@@ -19,6 +19,7 @@ import { ApiCallService } from './api-call.service';
 import { UserService } from './user.service';
 import { ChartComponent } from './chart/chart.component';
 import { GraphComponent } from './graph/graph.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { GraphComponent } from './graph/graph.component';
         LogInComponent,
         SampleChartComponent,
         ChartComponent,
-        GraphComponent
+        GraphComponent,
+        PortfolioComponent
     ],
     imports: [
         BrowserAnimationsModule,
