@@ -11,7 +11,7 @@ export class LogInComponent implements OnInit {
   
   user: any = {};
   
-  constructor(private _user: UserService, private router: Router) { }
+  constructor(private _user: UserService, private _router: Router) { }
   
   loginSubmit(){
     console.log(this.user);
@@ -26,7 +26,7 @@ export class LogInComponent implements OnInit {
   }
   
   registerUser(){
-    this.router.navigate(['/register']);
+    this._router.navigate(['/register']);
   }
   ngOnInit() {
   }
