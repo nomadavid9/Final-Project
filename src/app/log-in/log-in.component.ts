@@ -27,18 +27,16 @@ export class LogInComponent implements OnInit {
           sessionStorage.setItem('userId', userRes.userId)
           
           //routes to search-component, upon successful login.
-          this._router.navigate(['/search'])
+          this._router.navigate(['/portfolio'])
           this.loader = false;
-        })
+      })
   }
   
+  //Calls registerUser() on UserService
   registerUser(){
     /*routes to register component (if user 
     chooses to register while in login page)*/
     this._router.navigate(['/register']);
-  }
-  
-  ngOnInit() {
   }
 
 }

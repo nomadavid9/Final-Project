@@ -1,3 +1,25 @@
-<p>
-  portfolio works!
-</p>
+<input
+  type= "text"
+  id= "formFields_2"
+  [(ngModel)]= "stockSymbol"
+  (keyUp.enter)= "addStock(stockSymbol)"
+  placeholder="Stock Symbol ex: AAPL"
+  size= "45">
+<button (click) = "addStock(stockSymbol)">Add Stock</button>
+
+
+<div *ngIf = "portStocks" class ="portfolio">
+  <h4>My Portfolio</h4>
+  <table class="table table-noborder">
+    <thead>
+      <tr>
+        <th> Stock Ticker </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor= "let stock of portStocks">
+        <td> {{stock}} </td>
+      </tr>
+    </tbody> 
+  </table>
+</div>

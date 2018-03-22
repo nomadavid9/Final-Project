@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -6,8 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit {
-
-  constructor() { }
+  
+  portStocks: any[] = [];
+  stockSymbol: string;
+  constructor(private _user: UserService) { }
+  
+  addStock(stockSymbol){
+    let ticker = {
+      "ticker": stockSymbol
+    }
+    this._user.addStock(ticker)
+      .subscribe(
+        (userRes: any)=>{
+          console.log(userRes, "res!")
+          console.log(userRes.ticker)
+          this.portStocks.push(userRes.ticker);
+        })
+  }
 
   ngOnInit() {
   }

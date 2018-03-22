@@ -15,7 +15,7 @@ export const ROUTES: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LogInComponent},
-    {path: 'search', component: SearchBarComponent}
+    {path: 'search', component: SearchBarComponent},
     {path: 'portfolio', component: PortfolioComponent}
 ];
 
