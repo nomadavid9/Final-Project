@@ -12,14 +12,14 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from "./register/register.component";
 import { LogInComponent } from "./log-in/log-in.component";
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { SampleChartComponent } from './sample-chart/sample-chart.component';
+import { ChartComponent } from './chart/chart.component';
+import { TableComponent } from './table/table.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+
 
 
 import { ApiCallService } from './api-call.service';
 import { UserService } from './user.service';
-import { ChartComponent } from './chart/chart.component';
-import { GraphComponent } from './graph/graph.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @NgModule({
     declarations: [
@@ -27,10 +27,9 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
         SearchBarComponent,
         RegisterComponent,
         LogInComponent,
-        SampleChartComponent,
         ChartComponent,
-        GraphComponent,
-        PortfolioComponent
+        PortfolioComponent,
+        TableComponent
     ],
     imports: [
         BrowserAnimationsModule,

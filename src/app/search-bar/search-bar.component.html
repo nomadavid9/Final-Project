@@ -11,8 +11,15 @@
     <span>Loading...</span>
   </div>
   
-<app-sample-chart 
-  *ngIf = "stockArray"
-  [stockArray] = "stockArray"
-  [timesArray] = "timesArray">
-</app-sample-chart>
+<div 
+class = "stock-data"
+*ngIf = "stockArray">
+  <app-chart
+    [stockArray] = "stockArray"
+    [timesArray] = "timesArray">
+  </app-chart>
+  <app-table
+    [stockArray] = "stockArray"
+    [timesArray] = "timesArray">
+  </app-table>
+</div>

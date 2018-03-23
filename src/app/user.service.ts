@@ -45,7 +45,7 @@ export class UserService {
     let token = sessionStorage.getItem('token');
     console.log("userId: ", userId)
     console.log("token: ", token)
-    return this._http.post(this.baseUrl + userId + this.baseToken + token, ticker) 
+    return this._http.post(this.baseUrl + userId + this.baseTokenStocks + token, ticker) 
   }
   
 }
