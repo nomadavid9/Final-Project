@@ -15,16 +15,16 @@
            <a class="nav-link" href="#" [routerLink]="['/register']" routerLinkActive="active"><span class="nav-text">Register</span></a>
            <a class="nav-link" href="#" [routerLink]="['/login']" routerLinkActive="active"><span class="nav-text">Log in</span></a>
          </div>
-           <clr-dropdown *ngIf= "isLoggedIn">
-             <button class="nav-icon" clrDropdownTrigger>
-               <clr-icon shape="user"></clr-icon>
-               <clr-icon shape="caret down"></clr-icon>
-             </button>
-               <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-                 <a href="#" [routerLink]="['/portfolio']" routerLinkActive="active" clrDropdownItem>My Portfolio</a>
-                 <a href="#" (click)= "logOut()" clrDropdownItem>Log out</a>
-               </clr-dropdown-menu>
-           </clr-dropdown>
+         <clr-dropdown *ngIf= "isLoggedIn">
+           <button class="nav-icon" clrDropdownTrigger>
+             <clr-icon shape="user"></clr-icon>
+             <clr-icon shape="caret down"></clr-icon>
+           </button>
+             <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+               <a href="#" [routerLink]="['/portfolio']" routerLinkActive="active" clrDropdownItem>My Portfolio</a>
+               <a href="#" (click)= "logOut()" clrDropdownItem>Log out</a>
+             </clr-dropdown-menu>
+         </clr-dropdown>
     </div>
   </clr-header>
   <div class="content-container">

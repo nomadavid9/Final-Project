@@ -1,7 +1,6 @@
-<div 
-  class="col-md-6 stock-chart">
-  <div style="display: block;">
-  <canvas baseChart width="200" height="200"
+
+<div style="display: block;">
+  <canvas baseChart width="400" height="400"
               [datasets]="lineChartData"
               [labels]="lineChartLabels"
               [options]="lineChartOptions"
@@ -9,6 +8,7 @@
               [legend]="lineChartLegend"
               [chartType]="lineChartType"
               (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
-  </div>
-</div>
+              (chartClick)="chartClicked($event)">
+    
+  </canvas>
+ </div>

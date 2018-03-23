@@ -10,15 +10,22 @@
     <span class="spinner spinner-inline">Loading...</span>
     <span>Loading...</span>
   </div>
-<div 
+  
+  <!--I would like to make the bottom items into a seperate view.-->
+<div  class="row"
 class = "stock-data"
 *ngIf = "stockArray">
-  <app-chart
+<div class="col-md-6 stock-chart">
+ <app-chart
     [stockArray] = "stockArray"
     [timesArray] = "timesArray">
   </app-chart>
+</div>
+ <div class="col-md-6 stock-chart">  
   <app-table
     [stockArray] = "stockArray"
     [timesArray] = "timesArray">
   </app-table>
+  
+  </div>
 </div>
