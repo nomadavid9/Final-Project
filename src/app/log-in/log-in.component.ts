@@ -27,6 +27,7 @@ export class LogInComponent{
           sessionStorage.setItem('userId', userRes.userId)
           
           //routes to search-component, upon successful login.
+          this._user.loginStatus(true);
           this._router.navigate(['/portfolio'])
           this.loader = false;
       })

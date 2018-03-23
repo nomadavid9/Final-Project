@@ -11,8 +11,10 @@
       </div>
       
        <div class="header-actions">
+         <div *ngIf= "!isLoggedIn">
          <a class="nav-link" href="#" [routerLink]="['/register']" routerLinkActive="active"><span class="nav-text">Register</span></a>
          <a class="nav-link" href="#" [routerLink]="['/login']" routerLinkActive="active"><span class="nav-text">Log in</span></a>
+         </div>        
         <clr-dropdown>
             <button class="nav-icon" clrDropdownTrigger>
                 <clr-icon shape="user"></clr-icon>

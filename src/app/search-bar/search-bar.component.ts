@@ -8,12 +8,14 @@ import { Observable} from 'rxjs/Observable';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent {
-
-  constructor(private _apiCall: ApiCallService) {}
+  /*Class Properties*/
   stockSymbol: string;
   stockArray: any;
   timesArray: any;
   loader: boolean = false;
+  
+  /*Class Constructor*/
+  constructor(private _apiCall: ApiCallService) {}
 
   /* Gets seven most recent values of each array within the 
   value property of each object within stockArray and returns 

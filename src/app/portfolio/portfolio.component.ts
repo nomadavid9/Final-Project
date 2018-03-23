@@ -12,10 +12,10 @@ export class PortfolioComponent implements OnInit {
   stockSymbol: string;
   constructor(private _user: UserService) { }
   
+  /*Takes ticker symbol from input field and sends it to 
+  the addStock() function on userService*/
   addStock(stockSymbol){
-    let ticker = {
-      "ticker": stockSymbol
-    }
+    let ticker = {"ticker": stockSymbol}
     this._user.addStock(ticker)
       .subscribe(
         (userRes: any)=>{
