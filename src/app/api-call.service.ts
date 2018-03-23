@@ -23,20 +23,16 @@ export class ApiCallService {
     timestamps: any = [];            
   constructor(private http: HttpClient) { }
   
-  
+  /*Used in getData function to flatten multiple layered 
+  array into single array of consecutive matching values*/  
   flatten(arr) {
     return [].concat(...arr)
   }
-  
   deepFlatten(arr) {
     return this.flatten(
       arr.map(x=>             
-        Array.isArray(x)      
-          ? this.deepFlatten(x)   
-          : x                 
-      )
-    )
-  }
+        Array.isArray(x) ? this.deepFlatten(x) : x                 
+      ))}
   
   getData(stockSymbol){
     console.log(stockSymbol, "hit");

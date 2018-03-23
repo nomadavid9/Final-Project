@@ -20,6 +20,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 
 import { ApiCallService } from './api-call.service';
 import { UserService } from './user.service';
+import { StockDataComponent } from './stock-data/stock-data.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { UserService } from './user.service';
         LogInComponent,
         ChartComponent,
         PortfolioComponent,
-        TableComponent
+        TableComponent,
+        StockDataComponent
     ],
     imports: [
         BrowserAnimationsModule,
