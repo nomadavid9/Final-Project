@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
           console.log(userRes, "res")
           sessionStorage.setItem('token', userRes.token)
           sessionStorage.setItem('userId', userRes.userId)
+          this._user.loginStatus(true);
           this._router.navigate(['/portfolio'])
           this.loader = false;
         })

@@ -15,12 +15,12 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ChartComponent } from './chart/chart.component';
 import { TableComponent } from './table/table.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
-
+import { StockDataComponent } from './stock-data/stock-data.component';
 
 
 import { ApiCallService } from './api-call.service';
 import { UserService } from './user.service';
-import { StockDataComponent } from './stock-data/stock-data.component';
+import { StockDataService } from './stock-data.service';
 
 @NgModule({
     declarations: [
@@ -43,7 +43,7 @@ import { StockDataComponent } from './stock-data/stock-data.component';
         ChartsModule,
         ROUTING
     ],
-    providers: [ApiCallService, UserService],
+    providers: [ApiCallService, UserService, StockDataService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { SampleChartComponent } from './sample-chart/sample-chart.component';
+import { ChartComponent } from './chart/chart.component';
+import { TableComponent } from './table/table.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 import { ClarityModule } from "@clr/angular";
 import { ROUTING } from "./app.routing";
@@ -23,7 +25,9 @@ describe('AppComponent', () => {
                 LogInComponent,
                 RegisterComponent,
                 SearchBarComponent,
-                SampleChartComponent
+                PortfolioComponent,
+                ChartComponent,
+                TableComponent
             ],
             imports: [
                 ClarityModule.forRoot(),

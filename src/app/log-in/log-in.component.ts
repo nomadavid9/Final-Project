@@ -33,7 +33,7 @@ export class LogInComponent{
       })
   }
   
-  //Calls registerUser() on UserService
+  //Route
   registerUser(){
     /*routes to register component (if user 
     chooses to register while in login page)*/

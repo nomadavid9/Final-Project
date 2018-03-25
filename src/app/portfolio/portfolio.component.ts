@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { UserService } from '../user.service';
+import { StockDataService } from '../stock-data.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -10,13 +12,13 @@ export class PortfolioComponent implements OnInit {
   
   portStocks: any[] = [];
   stockSymbol: string;
-  constructor(private _user: UserService) { }
+  constructor(private _user: UserService, private _stock: StockDataService) { }
   
   /*Takes ticker symbol from input field and sends it to 
   the addStock() function on userService*/
   addStock(stockSymbol){
     let ticker = {"ticker": stockSymbol}
-    this._user.addStock(ticker)
+    this._stock.addStock(ticker)
       .subscribe(
         (userRes: any)=>{
           console.log(userRes, "res!")

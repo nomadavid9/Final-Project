@@ -11,8 +11,7 @@
     <span>Loading...</span>
   </div>
   
-  <!--I would like to make the bottom items into a seperate view.-->
-<div  class="row"
+<div class="row"
 class = "stock-data"
 *ngIf = "stockArray">
 <div class="col-md-6 stock-chart">
@@ -26,6 +25,5 @@ class = "stock-data"
     [stockArray] = "stockArray"
     [timesArray] = "timesArray">
   </app-table>
-  
   </div>
 </div>

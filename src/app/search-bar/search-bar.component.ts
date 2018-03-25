@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
+import { StockDataService } from '../stock-data.service';
 import { Observable} from 'rxjs/Observable';
 
 @Component({
@@ -15,7 +16,8 @@ export class SearchBarComponent {
   loader: boolean = false;
   
   /*Class Constructor*/
-  constructor(private _apiCall: ApiCallService) {}
+  constructor(private _apiCall: ApiCallService 
+              /*private _stock: StockDataService*/) {}
 
   /* Gets seven most recent values of each array within the 
   value property of each object within stockArray and returns 
@@ -41,15 +43,18 @@ export class SearchBarComponent {
   then calls getLastSevenData function on incoming array.*/
   getData(stockSymbol){
     this.loader = true;
+    console.log("ping 1")
     this._apiCall.getData(stockSymbol)
       .subscribe(data => {
-        //format stockArray
+        //format stockArray and send stockArray to StockDataService
         this.stockArray = data
         this.getRecentData(this.stockArray);
+        //this._stock.stockArray = this.stockArray;
         
-        //initialize and format timesArray
+        //initialize, format, and send timesArray to StockDataService
         this.timesArray = this._apiCall.timestamps;
         this.getRecentTimes(this.timesArray);
+        //this._stock.timesArray = this.timesArray;
         
         //Notify console that data has been received 
         console.log("Received fully formatted data from Service.")

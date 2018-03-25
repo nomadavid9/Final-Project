@@ -20,6 +20,6 @@ export class AppComponent implements OnInit {
     
     ngOnInit(){
         this._user.isLoggedIn
-            .subscribe(logStatus => this.isLoggedIn = logStatus)
+            .subscribe(loginState => this.isLoggedIn = loginState)
     }
 }

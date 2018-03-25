@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { StockDataService } from '../stock-data.service';
 @Component({
   selector: 'app-stock-data',
   templateUrl: './stock-data.component.html',
@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockDataComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _stock: StockDataService) { }
+  
+  stockArray: any[] = this._stock.stockArray;
+  timesArray: any[] = this._stock.timesArray;
   ngOnInit() {
   }
 
