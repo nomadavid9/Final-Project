@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StockDataService } from '../stock-data.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-stock-data',
   templateUrl: './stock-data.component.html',
@@ -11,6 +13,7 @@ export class StockDataComponent implements OnInit {
   
   stockArray: any[] = this._stock.stockArray;
   timesArray: any[] = this._stock.timesArray;
+  stockSymbol: string = this._stock.stockSymbol;
   ngOnInit() {
   }
 

@@ -5,25 +5,7 @@
   (keyUp.enter)= "getData(stockSymbol)"
   placeholder="Stock Symbol ex: AAPL"
   size= "45">
-<button (click) = "getData(stockSymbol)">Submit</button>
   <div *ngIf = "loader">
     <span class="spinner spinner-inline">Loading...</span>
     <span>Loading...</span>
   </div>
-  
-<div class="row"
-class = "stock-data"
-*ngIf = "stockArray">
-<div class="col-md-6 stock-chart">
- <app-chart
-    [stockArray] = "stockArray"
-    [timesArray] = "timesArray">
-  </app-chart>
-</div>
- <div class="col-md-6 stock-chart">  
-  <app-table
-    [stockArray] = "stockArray"
-    [timesArray] = "timesArray">
-  </app-table>
-  </div>
-</div>

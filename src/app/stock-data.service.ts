@@ -7,6 +7,7 @@ export class StockDataService {
   /*Class Properties*/
   baseUrl: string = 'http://david-spring-2018-phortonssf.c9users.io:8080/api/appUsers/';
   baseTokenStocks: string = '/stocks?access_token=';
+  //stock-data
   stockArray: any[];
   timesArray: any[];
   
