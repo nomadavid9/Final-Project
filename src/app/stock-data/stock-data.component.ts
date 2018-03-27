@@ -18,17 +18,20 @@ export class StockDataComponent implements OnInit{
   constructor(private _stock: StockDataService){}
   
   ngOnInit(){
+    //subscribe to stockArray BehaviorSubject
     this._stock.stockArray
       .subscribe((updatedStocks) => {
-              this.stockArray = updatedStocks;
+        this.stockArray = updatedStocks;
     });
+    //subscribe to timesArray BehaviorSubject
     this._stock.timesArray
       .subscribe((updatedTimes) => {
-              this.timesArray = updatedTimes;
+        this.timesArray = updatedTimes;
     });
+    //subscribe to stockSymbol BehaviorSubject
     this._stock.stockSymbol
       .subscribe((updatedSymbol) => {
-              this.stockSymbol = updatedSymbol;
+        this.stockSymbol = updatedSymbol;
     });
   }
 }
