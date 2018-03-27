@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class StockDataService { 
@@ -7,11 +9,29 @@ export class StockDataService {
   /*Class Properties*/
   baseUrl: string = 'http://david-spring-2018-phortonssf.c9users.io:8080/api/appUsers/';
   baseTokenStocks: string = '/stocks?access_token=';
-  //stock-data
-  stockArray: any[];
-  timesArray: any[];
   
-  constructor(private _http: HttpClient){}
+  //stock-data
+  stockArray: BehaviorSubject<any>;
+  timesArray: BehaviorSubject<any>;
+  stockSymbol: BehaviorSubject<any>;
+  
+  //setting stock data equal to subject Observable
+  constructor(private _http: HttpClient){
+    this.stockArray = new BehaviorSubject([]);
+    this.timesArray =  new BehaviorSubject([]);
+    this.stockSymbol =  new BehaviorSubject('');
+  }
+  
+  //updating values
+  updatedStock(dataAsParams) {
+        this.stockArray.next(dataAsParams);
+    }
+  updatedTime(dataAsParams) {
+        this.timesArray.next(dataAsParams);
+    }
+  updatedSymbol(dataAsParams) {
+      this.stockSymbol.next(dataAsParams);
+  }
   
   /*Adds stock "ticker" to persistent model*/
   addStock(ticker){
@@ -21,6 +41,9 @@ export class StockDataService {
     console.log("token: ", token)
     return this._http.post(this.baseUrl + userId + this.baseTokenStocks + token, ticker) 
   }
+  
+  
+  /**/
   
   
 

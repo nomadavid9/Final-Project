@@ -7,15 +7,12 @@ import { filter, map, reduce, pluck } from 'rxjs/operators';
 export class ApiCallService {
   
   //build URL to be called by HttpClient
-    base_url: string = 'https://www.alphavantage.co/query?function='
-    timeSeries: string = 'TIME_SERIES_INTRADAY'
-  
-    base_symbol: string = '&symbol='
-  
-    base_interval: string = '&interval='
+    base_url: string = 'https://www.alphavantage.co/query?function=';
+    timeSeries: string = 'TIME_SERIES_INTRADAY';
+    base_symbol: string = '&symbol=';
+    base_interval: string = '&interval=';
     interval: string = '60min';
-  
-    base_apiKey: string = '&apikey='
+    base_apiKey: string = '&apikey=';
     apiKey: string = '0OOOD0F61M3YBRBV';
     
     //FormattedData!
