@@ -11,6 +11,7 @@ export class LogInComponent{
   
   user: any = {};
   loader: boolean = false;
+  userStocks: any = [];
   
   constructor(private _user: UserService, private _router: Router) { }
   
@@ -25,6 +26,8 @@ export class LogInComponent{
           console.log(userRes, "res")
           sessionStorage.setItem('token', userRes.token)
           sessionStorage.setItem('userId', userRes.userId)
+          
+          this._user.userData = userRes.userData;
           
           //routes to search-component, upon successful login.
           this._user.loginStatus(true);

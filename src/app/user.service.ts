@@ -9,6 +9,7 @@ export class UserService {
   baseUrl: string = 'http://david-spring-2018-phortonssf.c9users.io:8080/api/appUsers/';
   baseToken: string = '?access_token=';
   isLoggedIn: BehaviorSubject<boolean>;
+  userData: any[];
   
   /*Class Constructor*/
   constructor(private _http: HttpClient) { 

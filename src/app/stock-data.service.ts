@@ -23,14 +23,14 @@ export class StockDataService {
   }
   
   //updating values
-  updatedStock(dataAsParams) {
-        this.stockArray.next(dataAsParams);
+  updatedStock(updatedStocks) {
+        this.stockArray.next(updatedStocks);
     }
-  updatedTime(dataAsParams) {
-        this.timesArray.next(dataAsParams);
+  updatedTime(updatedTimes) {
+        this.timesArray.next(updatedTimes);
     }
-  updatedSymbol(dataAsParams) {
-      this.stockSymbol.next(dataAsParams);
+  updatedSymbol(updatedSymbol) {
+      this.stockSymbol.next(updatedSymbol);
   }
   
   /*Adds stock "ticker" to persistent model*/

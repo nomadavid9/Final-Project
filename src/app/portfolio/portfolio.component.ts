@@ -10,8 +10,13 @@ import { StockDataService } from '../stock-data.service';
 })
 export class PortfolioComponent implements OnInit {
   
-  portStocks: any[] = [];
+  addedStocks: any[] = [];
+  userData: any[] = this._user.userData
+  fullName: string = this.userData.firstName  + " " 
+                   + this.userData.lastName;
+  userStocks: any[] = this.userData.stocks;
   stockSymbol: string;
+  
   constructor(private _user: UserService, private _stock: StockDataService) { }
   
   /*Takes ticker symbol from input field and sends it to 
@@ -23,11 +28,12 @@ export class PortfolioComponent implements OnInit {
         (userRes: any)=>{
           console.log(userRes, "res!")
           console.log(userRes.ticker)
-          this.portStocks.push(userRes.ticker);
+          this.addedStocks.push(userRes.ticker);
         })
   }
 
   ngOnInit() {
+    console.log(this.fullName)
   }
 
 }

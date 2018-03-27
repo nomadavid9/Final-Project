@@ -21,6 +21,7 @@ import { StockDataComponent } from './stock-data/stock-data.component';
 import { ApiCallService } from './api-call.service';
 import { UserService } from './user.service';
 import { StockDataService } from './stock-data.service';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { StockDataService } from './stock-data.service';
         ChartComponent,
         PortfolioComponent,
         TableComponent,
-        StockDataComponent
+        StockDataComponent,
+        LoaderComponent
     ],
     imports: [
         BrowserAnimationsModule,
