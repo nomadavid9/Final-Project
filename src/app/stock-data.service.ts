@@ -57,12 +57,15 @@ export class StockDataService {
   getRecentTimes(array){
     array.splice(7);
     array.reverse();
-    for (let element of array){
-      this.date = element.slice(10);
-    };
-    console.log(this.date);
-    console.log(array);
-    return array;
+    let newArray = [];
+    let newString;
+    array.map((element) => {
+      this.date = element.slice(0,10);
+      newString = element.slice(11);
+      newArray.push(newString);
+    })
+    console.log(newArray)
+    return newArray;
   }
   
   getData(stockSymbol){
@@ -77,8 +80,8 @@ export class StockDataService {
         
         //initialize, format, and send timesArray to StockDataService
         let timesArray = this._apiCall.timestamps;
-        this.getRecentTimes(timesArray);
-        this.updateTime(timesArray);
+        let newArray = this.getRecentTimes(timesArray);
+        this.updateTime(newArray);
         
         //Notify console that data has been received 
         console.log("Received fully formatted data from API Service.");

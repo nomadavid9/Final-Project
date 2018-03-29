@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+import { StockDataService } from '../stock-data.service';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
@@ -7,14 +7,22 @@ import { Component, Input } from '@angular/core';
 })
 export class ChartComponent {
 
-constructor (){}
+constructor (private _stock: StockDataService){}
 
 @Input('stockArray') lineChartData: any[];
 @Input('timesArray') lineChartLabels: any[];
-  
+date: string = this._stock.date;  
   
   public lineChartOptions:any = {
-    responsive: true
+    responsive: true,
+    scales: {
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        labelString: "Date: " + this.date
+      }
+    }]
+  }  
   };
   public lineChartColors:Array<any> = [
     { // open
