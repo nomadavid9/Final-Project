@@ -17,9 +17,9 @@ export const ROUTES: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LogInComponent},
     {path: 'search', component: SearchBarComponent},
-    {path: 'portfolio', component: PortfolioComponent},
-    {path: 'stock-data', component: StockDataComponent}
-];
+    {path: 'stock-data', component: StockDataComponent},
+    {path: 'portfolio', component: PortfolioComponent}
+    ];
 
 //This is just part of the routing step, don't NEED to know this per se.
 export const ROUTING: ModuleWithProviders = RouterModule.forRoot(ROUTES);

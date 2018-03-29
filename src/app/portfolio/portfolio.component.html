@@ -2,26 +2,24 @@
   type= "text"
   id= "formFields_2"
   [(ngModel)]= "stockSymbol"
+  (keyup)="buttonDisable(stockSymbol)"
   (keyUp.enter)= "addStock(stockSymbol)"
   placeholder="Stock Symbol ex: AAPL"
   size= "45">
-<button (click) = "addStock(stockSymbol)">Add Stock</button>
+<button [disabled]= "isDisabled" (click) = "addStock(stockSymbol)" >Add Stock</button>
+
 <h3>Welcome Back Mr. {{fullName}}</h3>
-<div *ngIf = "userStocks" class ="portfolio">
-  <h4>My Portfolio</h4>
-  <table class="table table-noborder">
-    <thead>
-      <tr>
-        <th> Stock Ticker </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor= "let stock of userStocks">
-        <td> {{stock.ticker}} </td>
-      </tr>
-      <tr *ngFor= "let stock of addedStocks">
-        <td> {{stock}} </td>
-      </tr>
-    </tbody> 
-  </table>
+<div class="main-container">
+    <header class="header">
+        <h3 class="header">Portfolio</h3>
+    </header>
+    <div class="content-container">
+        <div class="content-area">
+            <app-stock-data></app-stock-data>
+        </div>
+        <clr-vertical-nav>
+            <a *ngFor = "let stock of userStocks"
+            clrVerticalNavLink (click) = "getData(stock)">{{stock}}</a>
+        </clr-vertical-nav>
+    </div>
 </div>

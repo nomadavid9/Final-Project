@@ -29,7 +29,7 @@ export class LogInComponent{
           
           this._user.userData = userRes.userData;
           
-          //routes to search-component, upon successful login.
+          //routes to portfolio component, upon successful login.
           this._user.loginStatus(true);
           this._router.navigate(['/portfolio'])
           this.loader = false;

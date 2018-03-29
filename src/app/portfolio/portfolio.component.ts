@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { UserService } from '../user.service';
 import { StockDataService } from '../stock-data.service';
 
@@ -10,14 +9,17 @@ import { StockDataService } from '../stock-data.service';
 })
 export class PortfolioComponent implements OnInit {
   
-  addedStocks: any[] = [];
-  userData: any[] = this._user.userData
-  fullName: string = this.userData.firstName  + " " 
-                   + this.userData.lastName;
-  userStocks: any[] = this.userData.stocks;
+  userData: any; 
+  userStocks: any[] = [];
+  firstName: any;
+  lastName: any;
+  fullName: any;
+  isDisabled: boolean = false;
   stockSymbol: string;
+  activeStock: string = "hello";
   
-  constructor(private _user: UserService, private _stock: StockDataService) { }
+  constructor(private _user: UserService, 
+              private _stock: StockDataService) { }
   
   /*Takes ticker symbol from input field and sends it to 
   the addStock() function on userService*/
@@ -28,12 +30,29 @@ export class PortfolioComponent implements OnInit {
         (userRes: any)=>{
           console.log(userRes, "res!")
           console.log(userRes.ticker)
-          this.addedStocks.push(userRes.ticker);
+          this.userStocks.push(userRes.ticker);
+          
         })
   }
-
-  ngOnInit() {
-    console.log(this.fullName)
+  
+  buttonDisable(stockSymbol){
+    this.isDisabled = this.userStocks.includes(stockSymbol) ?
+      true : false;
   }
-
+  
+  getData(stockSymbol){
+    this.activeStock = stockSymbol;
+    console.log(this.activeStock)
+    this._stock.getData(stockSymbol)
+  }
+  
+  ngOnInit(){
+    this.userData = this._user.userData;
+    this.firstName = this.userData.firstName
+    this.lastName = this.userData.lastName
+    this.fullName = this.firstName + " " + this.lastName;
+    for(let stock of this.userData.stocks){
+      this.userStocks.push(stock.ticker)
+    }
+  }
 }

@@ -46,7 +46,6 @@ export class ApiCallService {
           for (let key in data){
             this.timestamps.push(key);
           }
-          this.timestamps;
           return data;
         }),
         

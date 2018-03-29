@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiCallService } from '../api-call.service';
 import { StockDataService } from '../stock-data.service';
 import { Observable} from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -34,4 +35,6 @@ export class StockDataComponent implements OnInit{
         this.stockSymbol = updatedSymbol;
     });
   }
+  
+  
 }
