@@ -1,17 +1,16 @@
 <div *ngIf="stockSymbol">
  <h2> Stock Data for: {{stockSymbol}} </h2>
- <div class="row">
   <div class="col-md-6 stock-chart">
    <app-chart 
     [stockArray] = "stockArray"
     [timesArray] = "timesArray">
    </app-chart>
   </div>
-  <div class="col-md-12 stock-chart">  
+  
+  <div class="col-md-6 stock-chart">  
    <app-table
     [stockArray] = "stockArray"
     [timesArray] = "timesArray">
    </app-table>
   </div>
- </div>
 </div>

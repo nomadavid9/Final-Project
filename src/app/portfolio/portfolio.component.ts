@@ -16,7 +16,6 @@ export class PortfolioComponent implements OnInit {
   fullName: any;
   isDisabled: boolean = false;
   stockSymbol: string;
-  activeStock: string = "hello";
   
   constructor(private _user: UserService, 
               private _stock: StockDataService) { }
@@ -25,13 +24,13 @@ export class PortfolioComponent implements OnInit {
   the addStock() function on userService*/
   addStock(stockSymbol){
     let ticker = {"ticker": stockSymbol}
+    this._stock.getData(stockSymbol)
     this._stock.addStock(ticker)
       .subscribe(
         (userRes: any)=>{
           console.log(userRes, "res!")
           console.log(userRes.ticker)
           this.userStocks.push(userRes.ticker);
-          
         })
   }
   
@@ -41,8 +40,6 @@ export class PortfolioComponent implements OnInit {
   }
   
   getData(stockSymbol){
-    this.activeStock = stockSymbol;
-    console.log(this.activeStock)
     this._stock.getData(stockSymbol)
   }
   
